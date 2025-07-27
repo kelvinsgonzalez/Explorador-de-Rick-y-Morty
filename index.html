@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explorador de Rick and Morty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #1a202c;
+      color: #e2e8f0;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    ::placeholder {
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body class="font-sans transition-all duration-300">
+
+  <div class="container mx-auto p-4">
+    <!-- Header -->
+    <header class="text-center my-10">
+      <h1 class="text-5xl md:text-6xl font-black text-cyan-400 animate-bounce drop-shadow-lg">
+        🚀 Explorador de Rick and Morty - UMG Kelvin Gonzalez
+      </h1>
+      <p class="mt-4 text-cyan-200 text-lg md:text-xl">
+        Busca personajes por nombre, estado y género.
+      </p>
+    </header>
+
+    <!-- Filters -->
+    <section id="filters" class="flex flex-col md:flex-row gap-4 mb-10 p-6 bg-gray-800 rounded-2xl shadow-md">
+      <input
+        type="text"
+        id="name-filter"
+        placeholder="🔍 Buscar por nombre..."
+        class="flex-grow p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+      />
+
+      <select
+        id="status-filter"
+        class="p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+      >
+        <option value="">🌀 Todo Estado</option>
+        <option value="alive">🟢 Alive</option>
+        <option value="dead">🔴 Dead</option>
+        <option value="unknown">⚪ Unknown</option>
+      </select>
+
+      <select
+        id="gender-filter"
+        class="p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+      >
+        <option value="">🌀 Todo Género</option>
+        <option value="female">♀ Female</option>
+        <option value="male">♂ Male</option>
+        <option value="genderless">⚧ Genderless</option>
+        <option value="unknown">❓ Unknown</option>
+      </select>
+    </section>
+
+    <!-- Main grid of characters -->
+    <main
+      id="characters-container"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    >
+      <!-- Cards generadas dinámicamente -->
+    </main>
+
+    <!-- Pagination -->
+    <footer
+      id="pagination"
+      class="flex justify-center items-center gap-6 mt-12"
+    >
+      <button
+        id="prev-button"
+        class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform transform hover:scale-105"
+      >
+        ⬅ Anterior
+      </button>
+      <button
+        id="next-button"
+        class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-transform transform hover:scale-105"
+      >
+        Siguiente ➡
+      </button>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
